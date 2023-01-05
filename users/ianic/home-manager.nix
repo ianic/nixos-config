@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let sources = import ../../nix/sources.nix; in {
+  imports = [ ./doom-emacs.nix ];
+  
   # Home-manager 22.11 requires this be set. We never set it so we have
   # to use the old state version.
   home.stateVersion = "18.09";
@@ -89,6 +91,7 @@ let sources = import ../../nix/sources.nix; in {
       gp = "git push";
       gs = "git status";
       gt = "git tag";
+      e = "emacsclient -nw";
     };
   };
 
@@ -284,6 +287,7 @@ let sources = import ../../nix/sources.nix; in {
     enable = true;
     shellAliases = {
       ll = "ls -l";
+      e = "emacsclient -nw";
       #update = "sudo nixos-rebuild switch";
     };
     history = {
@@ -316,8 +320,17 @@ let sources = import ../../nix/sources.nix; in {
     # '';
   };
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
+    extraConfig = ''
+      (setq standard-indent 2)
+    '';
+  };
+
   services.emacs = {
     enable = true;
+    package = pkgs.emacs; 
     #package = doom-emacs; # Not needed if you're using the Home-Manager module instead
   };
 
