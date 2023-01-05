@@ -212,7 +212,7 @@ let sources = import ../../nix/sources.nix; in {
         { key = "C"; mods = "Command"; action = "Copy"; }
         { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
         { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
-        { key = "Subtract"; mods = "Command"; action = "DecreaseFontSize"; }
+        { key = "Minus"; mods = "Command"; action = "DecreaseFontSize"; }
       ];
     };
   };
