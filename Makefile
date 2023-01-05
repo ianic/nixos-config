@@ -1,13 +1,13 @@
 # Connectivity info for Linux VM
 NIXADDR ?= unset
 NIXPORT ?= 22
-NIXUSER ?= mitchellh
+NIXUSER ?= ianic
 
 # Get the path to this Makefile and directory
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # The name of the nixosConfiguration in the flake
-NIXNAME ?= vm-intel
+NIXNAME ?= vm-aarch64-prl
 
 # SSH options that are used. These aren't meant to be overridden but are
 # reused a lot so we just store them up here.
@@ -36,15 +36,15 @@ cache:
 # in one step but when I tried to merge them I got errors. One day.
 vm/bootstrap0:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
-		parted /dev/nvme0n1 -- mklabel gpt; \
-		parted /dev/nvme0n1 -- mkpart primary 512MiB -8GiB; \
-		parted /dev/nvme0n1 -- mkpart primary linux-swap -8GiB 100\%; \
-		parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB; \
-		parted /dev/nvme0n1 -- set 3 esp on; \
+		parted /dev/sda -- mklabel gpt; \
+		parted /dev/sda -- mkpart primary 512MiB -8GiB; \
+		parted /dev/sda -- mkpart primary linux-swap -8GiB 100\%; \
+		parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB; \
+		parted /dev/sda -- set 3 esp on; \
 		sleep 1; \
-		mkfs.ext4 -L nixos /dev/nvme0n1p1; \
-		mkswap -L swap /dev/nvme0n1p2; \
-		mkfs.fat -F 32 -n boot /dev/nvme0n1p3; \
+		mkfs.ext4 -L nixos /dev/sda1; \
+		mkswap -L swap /dev/sda2; \
+		mkfs.fat -F 32 -n boot /dev/sda3; \
 		sleep 1; \
 		mount /dev/disk/by-label/nixos /mnt; \
 		mkdir -p /mnt/boot; \
