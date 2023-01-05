@@ -207,12 +207,15 @@ let sources = import ../../nix/sources.nix; in {
       env.TERM = "xterm-256color";
 
       key_bindings = [
-        { key = "K"; mods = "Command"; chars = "ClearHistory"; }
+        { key = "K"; mods = "Command"; chars = "\\x0c"; }
         { key = "V"; mods = "Command"; action = "Paste"; }
         { key = "C"; mods = "Command"; action = "Copy"; }
+	{ key = "F"; mods = "Command"; action = "SearchForward"; }
+	{ key = "B"; mods = "Command"; action = "SearchBackward"; }
         { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
         { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
         { key = "Minus"; mods = "Command"; action = "DecreaseFontSize"; }
+
       ];
     };
   };
