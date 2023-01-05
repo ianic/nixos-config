@@ -37,7 +37,7 @@
   networking.hostName = "dev";
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Europe/Zagreb";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -95,6 +95,8 @@
 
     fonts = [
       pkgs.fira-code
+      pkgs.font-awesome
+      pkgs.powerline-fonts
     ];
   };
 
