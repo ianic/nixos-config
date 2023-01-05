@@ -106,42 +106,42 @@ let sources = import ../../nix/sources.nix; in {
     };
   };
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
-      "source ${sources.theme-bobthefish}/functions/fish_prompt.fish"
-      "source ${sources.theme-bobthefish}/functions/fish_right_prompt.fish"
-      "source ${sources.theme-bobthefish}/functions/fish_title.fish"
-      (builtins.readFile ./config.fish)
-      "set -g SHELL ${pkgs.fish}/bin/fish"
-    ]);
+  # programs.fish = {
+  #   enable = true;
+  #   interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
+  #     "source ${sources.theme-bobthefish}/functions/fish_prompt.fish"
+  #     "source ${sources.theme-bobthefish}/functions/fish_right_prompt.fish"
+  #     "source ${sources.theme-bobthefish}/functions/fish_title.fish"
+  #     (builtins.readFile ./config.fish)
+  #     "set -g SHELL ${pkgs.fish}/bin/fish"
+  #   ]);
 
-    shellAliases = {
-      ga = "git add";
-      gc = "git commit";
-      gco = "git checkout";
-      gcp = "git cherry-pick";
-      gdiff = "git diff";
-      gl = "git prettylog";
-      gp = "git push";
-      gs = "git status";
-      gt = "git tag";
+  #   shellAliases = {
+  #     ga = "git add";
+  #     gc = "git commit";
+  #     gco = "git checkout";
+  #     gcp = "git cherry-pick";
+  #     gdiff = "git diff";
+  #     gl = "git prettylog";
+  #     gp = "git push";
+  #     gs = "git status";
+  #     gt = "git tag";
 
-      # Two decades of using a Mac has made this such a strong memory
-      # that I'm just going to keep it consistent.
-      pbcopy = "xclip";
-      pbpaste = "xclip -o";
-    };
+  #     # Two decades of using a Mac has made this such a strong memory
+  #     # that I'm just going to keep it consistent.
+  #     pbcopy = "xclip";
+  #     pbpaste = "xclip -o";
+  #   };
 
-    plugins = map (n: {
-      name = n;
-      src  = sources.${n};
-    }) [
-      "fish-fzf"
-      "fish-foreign-env"
-      "theme-bobthefish"
-    ];
-  };
+  #   plugins = map (n: {
+  #     name = n;
+  #     src  = sources.${n};
+  #   }) [
+  #     "fish-fzf"
+  #     "fish-foreign-env"
+  #     "theme-bobthefish"
+  #   ];
+  # };
 
   programs.git = {
     enable = true;
@@ -177,7 +177,7 @@ let sources = import ../../nix/sources.nix; in {
   programs.go = {
     enable = true;
     goPath = "code/go";
-    goPrivate = [ "github.com/mitchellh" "github.com/hashicorp" "rfc822.mx" ];
+    #goPrivate = [ "github.com/mitchellh" "github.com/hashicorp" "rfc822.mx" ];
   };
 
   programs.tmux = {
@@ -210,12 +210,11 @@ let sources = import ../../nix/sources.nix; in {
         { key = "K"; mods = "Command"; chars = "\\x0c"; }
         { key = "V"; mods = "Command"; action = "Paste"; }
         { key = "C"; mods = "Command"; action = "Copy"; }
-	{ key = "F"; mods = "Command"; action = "SearchForward"; }
-	{ key = "B"; mods = "Command"; action = "SearchBackward"; }
+	      { key = "F"; mods = "Command"; action = "SearchForward"; }
+	      { key = "B"; mods = "Command"; action = "SearchBackward"; }
         { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
         { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
         { key = "Minus"; mods = "Command"; action = "DecreaseFontSize"; }
-
       ];
     };
   };
@@ -242,58 +241,58 @@ let sources = import ../../nix/sources.nix; in {
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    package = pkgs.neovim-nightly;
+  # programs.neovim = {
+  #   enable = true;
+  #   package = pkgs.neovim-nightly;
 
-    plugins = with pkgs; [
-      customVim.vim-cue
-      customVim.vim-fish
-      customVim.vim-fugitive
-      customVim.vim-glsl
-      customVim.vim-misc
-      customVim.vim-pgsql
-      customVim.vim-tla
-      customVim.vim-zig
-      customVim.pigeon
-      customVim.AfterColors
+  #   plugins = with pkgs; [
+  #     customVim.vim-cue
+  #     customVim.vim-fish
+  #     customVim.vim-fugitive
+  #     customVim.vim-glsl
+  #     customVim.vim-misc
+  #     customVim.vim-pgsql
+  #     customVim.vim-tla
+  #     customVim.vim-zig
+  #     customVim.pigeon
+  #     customVim.AfterColors
 
-      customVim.vim-nord
-      customVim.nvim-comment
-      customVim.nvim-lspconfig
-      customVim.nvim-plenary # required for telescope
-      customVim.nvim-telescope
-      customVim.nvim-treesitter
-      customVim.nvim-treesitter-playground
-      customVim.nvim-treesitter-textobjects
+  #     customVim.vim-nord
+  #     customVim.nvim-comment
+  #     customVim.nvim-lspconfig
+  #     customVim.nvim-plenary # required for telescope
+  #     customVim.nvim-telescope
+  #     customVim.nvim-treesitter
+  #     customVim.nvim-treesitter-playground
+  #     customVim.nvim-treesitter-textobjects
 
-      vimPlugins.vim-airline
-      vimPlugins.vim-airline-themes
-      vimPlugins.vim-eunuch
-      vimPlugins.vim-gitgutter
+  #     vimPlugins.vim-airline
+  #     vimPlugins.vim-airline-themes
+  #     vimPlugins.vim-eunuch
+  #     vimPlugins.vim-gitgutter
 
-      vimPlugins.vim-markdown
-      vimPlugins.vim-nix
-      vimPlugins.typescript-vim
-    ];
+  #     vimPlugins.vim-markdown
+  #     vimPlugins.vim-nix
+  #     vimPlugins.typescript-vim
+  #   ];
 
-    extraConfig = (import ./vim-config.nix) { inherit sources; };
-  };
+  #   extraConfig = (import ./vim-config.nix) { inherit sources; };
+  # };
 
   programs.zsh = {
     enable = true;
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      #update = "sudo nixos-rebuild switch";
     };
     history = {
       size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
+      path = ".local/share/zsh/history";
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "zsh-completions" ];
-      theme = "spaceship";
+      plugins = [ "git" ];
+      theme = "agnoster";
     };
     # interactiveShellInit = ''
     #   SPACESHIP_PROMPT_ADD_NEWLINE=false
