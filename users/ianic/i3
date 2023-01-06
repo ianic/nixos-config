@@ -13,7 +13,7 @@ new_float pixel 2
 floating_minimum_size 400 x 300
 floating_maximum_size -1 x -1
 focus_follows_mouse no
-hide_edge_borders both
+hide_edge_borders smart
 
 # Reading colors from resources
 set_from_resource $back			i3wm.background #1D1F21
@@ -27,7 +27,7 @@ set_from_resource $darkred		i3wm.color1		#A54242
 set_from_resource $green		i3wm.color10	#B5BD56
 
 #class                  border      backgr.     text        split
-#client.focused          $green     $green       $black      $red
+client.focused          $green      $green      $black      $red
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
@@ -47,6 +47,10 @@ exec --no-startup-id xsetroot -solid $back
 # Keybindings
 #----------------------------------------------------------------------
 # Use Mouse+$mod to drag floating windows to their wanted position
+#  ( parensleft
+#  [ bracketleft
+#  { braceleft
+
 floating_modifier $mod
 
 bindsym $mod+o exec rofi -dpi 220 -show run -no-config
@@ -65,8 +69,10 @@ bindsym $mod+Shift+d split v
 bindsym $mod+Shift+w kill
 
 # change focus
-bindsym $mod+bracketleft focus left
-bindsym $mod+bracketright focus right
+#bindsym $mod+bracketleft focus left
+#bindsym $mod+bracketright focus right
+bindsym $mod+Shift+bracketleft focus left
+bindsym $mod+Shift+bracketright focus right
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
 #bindsym $mod+l focus up

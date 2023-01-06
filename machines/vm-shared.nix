@@ -93,10 +93,12 @@
   fonts = {
     fontDir.enable = true;
 
+    # reference: https://github.com/NixOS/nixpkgs/tree/master/pkgs/data/fonts
     fonts = [
       pkgs.fira-code
       pkgs.font-awesome
       pkgs.powerline-fonts
+      pkgs.emacs-all-the-icons-fonts
       (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "SourceCodePro" "Meslo" "Hack" "UbuntuMono" ]; })
     ];
   };
