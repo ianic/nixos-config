@@ -19,8 +19,9 @@
 
   nixpkgs.overlays = import ../../lib/overlays.nix ++ [
     #(import ./doom-emacs.nix)
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    }))
+    #
+    # (import (builtins.fetchTarball {
+    #   url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    # }))
   ];
 }

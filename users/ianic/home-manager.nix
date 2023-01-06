@@ -91,7 +91,7 @@ let sources = import ../../nix/sources.nix; in {
       gp = "git push";
       gs = "git status";
       gt = "git tag";
-      e = "emacsclient -nw";
+      e = "emacsclient -n";
     };
   };
 
@@ -173,7 +173,7 @@ let sources = import ../../nix/sources.nix; in {
          };
       };
       core = {
-         editor = "emacs";
+         editor = "emacsclient -nw";
       };
     };
   };
@@ -287,7 +287,7 @@ let sources = import ../../nix/sources.nix; in {
     enable = true;
     shellAliases = {
       ll = "ls -l";
-      e = "emacsclient -nw";
+      e = "emacsclient -n";
       d = "ls -al";
       #update = "sudo nixos-rebuild switch";
     };
@@ -330,11 +330,11 @@ let sources = import ../../nix/sources.nix; in {
 #  };
 
 
-  services.emacs = {
-    enable = true;
-    # package = pkgs.emacs; 
-    # package = doom-emacs; # Not needed if you're using the Home-Manager module instead
-  };
+  # services.emacs = {
+  #   enable = true;
+  #   # package = pkgs.emacs;
+  #   # package = doom-emacs; # Not needed if you're using the Home-Manager module instead
+  #};
 
   services.gpg-agent = {
     enable = true;

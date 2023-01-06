@@ -9,4 +9,14 @@ let
   };
 in {
   home.packages = [ doom-emacs ];
+
+  # programs.emacs = {
+  #   enable = true;
+  #   #package = doom-emacs;
+  # };
+
+  services.emacs = {
+    enable = true;
+    package = doom-emacs; # Not needed if you're using the Home-Manager module instead
+  };
 }
