@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, callPackage, ... }:
 
 {
   # https://github.com/nix-community/home-manager/pull/2408
@@ -15,7 +15,12 @@
     ];
   };
 
+  services.emacs.package = pkgs.emacsUnstable;
+
   nixpkgs.overlays = import ../../lib/overlays.nix ++ [
-    (import ./vim.nix)
+    #(import ./doom-emacs.nix)
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
   ];
 }

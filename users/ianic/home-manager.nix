@@ -61,13 +61,13 @@ let sources = import ../../nix/sources.nix; in {
   xdg.configFile."devtty/config".text = builtins.readFile ./devtty;
 
   # tree-sitter parsers
-  xdg.configFile."nvim/parser/proto.so".source = "${pkgs.tree-sitter-proto}/parser";
-  xdg.configFile."nvim/queries/proto/folds.scm".source =
-    "${sources.tree-sitter-proto}/queries/folds.scm";
-  xdg.configFile."nvim/queries/proto/highlights.scm".source =
-    "${sources.tree-sitter-proto}/queries/highlights.scm";
-  xdg.configFile."nvim/queries/proto/textobjects.scm".source =
-    ./textobjects.scm;
+  #xdg.configFile."nvim/parser/proto.so".source = "${pkgs.tree-sitter-proto}/parser";
+  #xdg.configFile."nvim/queries/proto/folds.scm".source =
+  #  "${sources.tree-sitter-proto}/queries/folds.scm";
+  #xdg.configFile."nvim/queries/proto/highlights.scm".source =
+  #  "${sources.tree-sitter-proto}/queries/highlights.scm";
+  #xdg.configFile."nvim/queries/proto/textobjects.scm".source =
+  #  ./textobjects.scm;
 
   #---------------------------------------------------------------------
   # Programs
@@ -288,6 +288,7 @@ let sources = import ../../nix/sources.nix; in {
     shellAliases = {
       ll = "ls -l";
       e = "emacsclient -nw";
+      d = "ls -al";
       #update = "sudo nixos-rebuild switch";
     };
     history = {
@@ -322,11 +323,12 @@ let sources = import ../../nix/sources.nix; in {
 
 #  programs.emacs = {
 #    enable = true;
-#    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
+#    package = pkgs.emacs-gtk;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
 #    extraConfig = ''
 #      (setq standard-indent 2)
 #    '';
 #  };
+
 
   services.emacs = {
     enable = true;
