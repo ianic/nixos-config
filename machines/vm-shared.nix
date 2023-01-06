@@ -97,8 +97,10 @@
       pkgs.fira-code
       pkgs.font-awesome
       pkgs.powerline-fonts
+      (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "SourceCodePro" "Meslo" "Hack" "UbuntuMono" ]; })
     ];
   };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
