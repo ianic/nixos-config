@@ -1,1 +1,7 @@
-xrandr -s 6720x3732 && xset r rate 400
+#!/bin/sh
+
+# keyboard repeat rate [delay [rate]]
+xset r rate 400 40
+
+# screen resoulution
+xrandr -s 6720x3732
