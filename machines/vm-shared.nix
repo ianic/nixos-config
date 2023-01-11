@@ -56,8 +56,7 @@
   # setup windowing environment
   services.xserver = {
     enable = true;
-    layout = "us(mac), hr";
-    dpi = 220;
+    dpi = 180;
 
     desktopManager = {
       xterm.enable = false;
@@ -70,9 +69,9 @@
 
       # AARCH64: For now, on Apple Silicon, we must manually set the
       # display resolution. This is a known issue with VMware Fusion.
-      sessionCommands = ''
-        ${pkgs.xorg.xset}/bin/xset r rate 400 40
-      '';
+      # sessionCommands = ''
+      #   ${pkgs.xorg.xset}/bin/xset r rate 400 40
+      # '';
     };
 
     windowManager = {

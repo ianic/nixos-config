@@ -3,7 +3,7 @@
 {
 
   services.xserver = {
-    layout = "us(mac), hr";
+    layout = "us(mac), hr(unicode)";
     displayManager = {
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 400 40
