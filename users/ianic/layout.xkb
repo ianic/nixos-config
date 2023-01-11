@@ -7,7 +7,7 @@ xkb_keymap {
                   <LSGT> =  49;
 
                   # fix left alt from ISO_Level3_Shift to left alt
-                  <LALT> = 108;
+                  # <LALT> = 108;
     };
 	xkb_types     { include "complete+numpad(mac)"	};
 	xkb_compat    { include "complete"	};

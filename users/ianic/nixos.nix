@@ -1,8 +1,22 @@
 { config, pkgs, callPackage, ... }:
 
 {
+
+  services.xserver = {
+    layout = "us(mac), hr";
+    displayManager = {
+      sessionCommands = ''
+        ${pkgs.xorg.xset}/bin/xset r rate 400 40
+      '';
+    };
+  };
+
   # https://github.com/nix-community/home-manager/pull/2408
   # environment.pathsToLink = [ "/share/fish" ];
+  #
+  imports = [
+    ./keyboard.nix
+  ];
 
   users.users.ianic = {
     isNormalUser = true;
