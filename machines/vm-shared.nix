@@ -56,7 +56,7 @@
   # setup windowing environment
   services.xserver = {
     enable = true;
-    layout = "us(mac), hr, gb(mac)";
+    layout = "us(mac), hr";
     dpi = 220;
 
     desktopManager = {

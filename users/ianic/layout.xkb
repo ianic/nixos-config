@@ -1,11 +1,18 @@
 xkb_keymap {
 	xkb_keycodes  {
                   include "evdev+aliases(qwerty)"
+
+                  # fix ~ and ± keys on mac kayboard
                   <TLDE> =  94;
                   <LSGT> =  49;
+
+                  # fix left alt from ISO_Level3_Shift to left alt
+                  <LALT> = 108;
     };
 	xkb_types     { include "complete+numpad(mac)"	};
 	xkb_compat    { include "complete"	};
-	xkb_symbols   { include "pc+us(mac)+inet(evdev)+terminate(ctrl_alt_bksp)"	};
+
+    # to toggle between layouts alt_space_toggle or (grp:alt_shift_toggle)
+	xkb_symbols   { include "pc+us(mac)+inet(evdev)+terminate(ctrl_alt_bksp)+group(alt_space_toggle)"	};
 	xkb_geometry  { include "macintosh(macbook79)"	};
 };
