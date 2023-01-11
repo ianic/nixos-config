@@ -6,6 +6,7 @@
 
     ../modules/parallels-guest.nix
     ./vm-shared.nix
+    ./keyboard.nix
   ];
 
   # The official parallels guest support does not work currently.

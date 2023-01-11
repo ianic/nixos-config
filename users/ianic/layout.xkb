@@ -1,0 +1,11 @@
+xkb_keymap {
+	xkb_keycodes  {
+                  include "evdev+aliases(qwerty)"
+                  <TLDE> =  94;
+                  <LSGT> =  49;
+    };
+	xkb_types     { include "complete+numpad(mac)"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { include "pc+us(mac)+inet(evdev)+terminate(ctrl_alt_bksp)"	};
+	xkb_geometry  { include "macintosh(macbook79)"	};
+};
