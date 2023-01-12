@@ -62,6 +62,11 @@ let sources = import ../../nix/sources.nix; in {
     DEFAULT_USER = "ianic";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/script"
+  ];
+
   home.file.".gdbinit".source = ./gdbinit;
   home.file.".inputrc".source = ./inputrc;
 
