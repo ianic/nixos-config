@@ -5,10 +5,16 @@
   time.timeZone = "Europe/Zagreb";
 
   services.xserver = {
-    #layout = "us(mac), hr(unicode)";
+    layout = "us(mac), hr(unicode)";
     displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "ianic";
+      };
+
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 400 40
+        ${pkgs.xorg.xrandr}/bin/xrandr -s 6720x3732
       '';
     };
   };
