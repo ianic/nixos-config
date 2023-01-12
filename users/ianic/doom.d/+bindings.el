@@ -155,7 +155,7 @@
 (setq zig-return-to-buffer-after-format t)
 (setq zig-format-show-buffer nil)
 ;;(setq lsp-zig-zls-executable "/usr/local/bin/zls_log")
-(setq lsp-zig-zls-executable "/usr/local/bin/zls")
+(setq lsp-zig-zls-executable "~/.local/bin/zls")
 
 
 
