@@ -14,6 +14,7 @@
   hardware.parallels = {
     enable = true;
     package = (config.boot.kernelPackages.callPackage ../pkgs/parallels-tools/default.nix { });
+    autoMountShares = true;
   };
 
   # Interface is this on my M1
