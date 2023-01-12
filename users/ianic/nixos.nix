@@ -2,8 +2,11 @@
 
 {
 
+  time.timeZone = "Europe/Zagreb";
+
   services.xserver = {
-    layout = "us(mac), hr(unicode)";
+    dpi = 220;
+    #layout = "us(mac), hr(unicode)";
     displayManager = {
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 400 40
