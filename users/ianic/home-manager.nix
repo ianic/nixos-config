@@ -31,6 +31,15 @@ let sources = import ../../nix/sources.nix; in {
     pkgs.watch
     pkgs.zathura
 
+    pkgs.wget
+    pkgs.inetutils
+    pkgs.dig
+    pkgs.websocat
+
+    #pkgs.xev
+    #pkgs.xkbcomp
+    #pkgs.xmodmap
+
     pkgs.go
     pkgs.gopls
     pkgs.zigpkgs.master
