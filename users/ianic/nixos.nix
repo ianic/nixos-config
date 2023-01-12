@@ -5,7 +5,6 @@
   time.timeZone = "Europe/Zagreb";
 
   services.xserver = {
-    dpi = 220;
     #layout = "us(mac), hr(unicode)";
     displayManager = {
       sessionCommands = ''

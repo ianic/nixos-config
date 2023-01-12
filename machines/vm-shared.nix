@@ -56,7 +56,7 @@
   # setup windowing environment
   services.xserver = {
     enable = true;
-    dpi = 180;
+    dpi = 220;
 
     desktopManager = {
       xterm.enable = false;
