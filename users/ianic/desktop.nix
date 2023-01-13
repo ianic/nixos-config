@@ -7,10 +7,11 @@
 
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
   xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
-  xdg.configFile."devtty/config".text = builtins.readFile ./devtty;
+  #xdg.configFile."devtty/config".text = builtins.readFile ./devtty;
 
   xresources.extraConfig = builtins.readFile ./Xresources;
 
+  # unused, disabled in i3 file
   programs.i3status = {
     enable = true;
 
