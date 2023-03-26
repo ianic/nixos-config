@@ -247,13 +247,12 @@ bar {
 # try to set resolution on startup
 exec --no-startup-id '/run/current-system/sw/bin/xrandr -s 6720x3732'
 
-# put emacs in workspace 1
-# exec --no-startup-id i3-msg 'exec emacsclient -c'
-# this is not working
-# exec --no-startup-id i3-msg 'workspace 2; exec emacsclient -c;'
-# start two terminals in workspace 3
-# exec --no-startup-id i3-msg 'workspace 3; exec i3-sensible-terminal; exec i3-sensible-terminal; workspace 1'
-# exec --no-startup-id i3-msg 'workspace 3; exec alacritty; exec alacritty; workspace 1'
+# put two terminals in workspace 1
+exec --no-startup-id i3-msg 'workspace 1; exec alacritty; exec alacritty;'
+#exec --no-startup-id i3-msg 'exec sleep 2'
+#exec --no-startup-id i3-msg 'workspace 2; exec sh -c "sleep 5 && emacsclient -c"'
+#exec --no-startup-id i3-msg 'workspace 3; exec emacsclient -nc;'
+#exec i3-msg 'workspace 4; exec emacsclient -nc;'
 
 # command to start emacs
 bindsym $mod+e exec emacsclient -nc

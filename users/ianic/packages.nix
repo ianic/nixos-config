@@ -20,9 +20,9 @@
     pkgs.dig
     pkgs.websocat
 
-    pkgs.xorg.xkbcomp
-    pkgs.xorg.xev
-    pkgs.xorg.xmodmap
+    #pkgs.xorg.xkbcomp
+    #pkgs.xorg.xev
+    #pkgs.xorg.xmodmap
 
     pkgs.go
     pkgs.gopls

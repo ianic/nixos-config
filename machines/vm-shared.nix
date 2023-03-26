@@ -113,6 +113,11 @@
     rxvt_unicode
     xclip
 
+    xorg.xkbcomp
+    xorg.xmodmap
+    xorg.xset
+    xorg.xrandr
+
     # For hypervisors that support auto-resizing, this script forces it.
     # I've noticed not everyone listens to the udev events so this is a hack.
     (writeShellScriptBin "xrandr-auto" ''
